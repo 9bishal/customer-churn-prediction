@@ -151,6 +151,7 @@ def run_training(processed_path: str = PROCESSED_PATH, save_path: str = MODEL_PA
 
     print(f"\nSelected best model: {best_name}")
 
+    os.makedirs(os.path.dirname(save_path), exist_ok=True)
     joblib.dump(best_pipeline, save_path)
     print(f"Saved pipeline to {save_path}")
 
