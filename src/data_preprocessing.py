@@ -124,6 +124,7 @@ def run_pipeline(raw_path: str = RAW_PATH, save_path: str = PROCESSED_PATH) -> p
     df = add_features(df)
     df = encode_categoricals(df)
 
+    os.makedirs(os.path.dirname(save_path), exist_ok=True)
     df.to_csv(save_path, index=False)
     print(f"Processed data saved to {save_path}")
     print(f"Final shape: {df.shape}")
